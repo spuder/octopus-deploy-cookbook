@@ -80,8 +80,8 @@ action :configure do
     code <<-EOH
     .\\Octopus.Server.exe configure --instance "#{instance}" --home "#{home_path}" --console
     #{catch_powershell_error('Configuring Home Dir')}
-    .\\Octopus.Server.exe configure --instance "#{instance}" --storageConnectionString "#{connection_string}" --console
-    #{catch_powershell_error('Configuring Database Connection')}
+    #{.\\Octopus.Server.exe configure --instance "#{instance}" --storageConnectionString "#{connection_string}" --console
+    #{catch_powershell_error('Configuring Database Connection')} if connection_string }
     .\\Octopus.Server.exe configure --instance "#{instance}" --upgradeCheck "True" --upgradeCheckWithStatistics "True" --console
     #{catch_powershell_error('Configuring Upgrade Checks')}
     .\\Octopus.Server.exe configure --instance "#{instance}" --webAuthenticationMode "Domain" --console
